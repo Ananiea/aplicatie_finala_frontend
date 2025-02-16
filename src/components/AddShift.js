@@ -6,7 +6,7 @@ function AddShift({ token, user }) {
 
   const handleAddShift = async () => {
     try {
-      await axios.post("http://localhost:3000/add-shift", {
+      await axios.post("https://aplicatie-finala-backend.onrender.com/add-shift", {
         user_id: user,
         total_hours: hours,
       }, { headers: { Authorization: `Bearer ${token}` } });

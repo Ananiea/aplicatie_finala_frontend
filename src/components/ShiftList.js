@@ -8,7 +8,7 @@ function ShiftList({ token, user }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/shifts/${user}`, {
+      .get(`https://aplicatie-finala-backend.onrender.com/shifts/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

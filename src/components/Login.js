@@ -8,7 +8,7 @@ function Login({ setToken, setUser }) {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/login", { id });
+      const res = await axios.post("https://aplicatie-finala-backend.onrender.com/login", { id });
       setToken(res.data.token);
       setUser(res.data.name);
       navigate("/dashboard");
