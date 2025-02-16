@@ -12,15 +12,13 @@ function AddShift({ token, user, userId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validare înainte de trimitere
     if (!shiftNumber || !kunde || !auto || !datum || !startTime || !endTime) {
-      alert("Alle Felder sind erforderlich!"); // "Toate câmpurile sunt obligatorii!"
+      alert("Alle Felder sind erforderlich!");
       return;
     }
 
-    // Validare Auto (fără spații)
     if (/\s/.test(auto)) {
-      alert("Das Feld 'Auto' darf keine Leerzeichen enthalten!"); // "Câmpul 'Auto' nu trebuie să conțină spații!"
+      alert("Das Feld 'Auto' darf keine Leerzeichen enthalten!");
       return;
     }
 
@@ -35,7 +33,7 @@ function AddShift({ token, user, userId }) {
         end_time: endTime,
       }, { headers: { Authorization: `Bearer ${token}` } });
 
-      alert("Schicht erfolgreich hinzugefügt!"); // "Tură adăugată cu succes!"
+      alert("Schicht erfolgreich hinzugefügt!");
       setShiftNumber("");
       setKunde("");
       setAuto("");
@@ -43,7 +41,7 @@ function AddShift({ token, user, userId }) {
       setStartTime("");
       setEndTime("");
     } catch (error) {
-      alert("Fehler beim Hinzufügen der Schicht!"); // "Eroare la adăugare!"
+      alert("Fehler beim Hinzufügen der Schicht!");
     }
   };
 
@@ -58,7 +56,7 @@ function AddShift({ token, user, userId }) {
         <input type="text" value={user} disabled />
 
         <label>ID:</label>
-        <input type="text" value={userId} disabled />
+        <input type="text" value={userId} disabled />  {/* Acum ID-ul este completat automat */}
 
         <label>Kunde:</label>
         <input type="number" value={kunde} onChange={(e) => setKunde(e.target.value)} required />

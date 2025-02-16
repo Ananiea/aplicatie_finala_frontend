@@ -1,7 +1,7 @@
 import ShiftList from "./ShiftList";
 import { Link } from "react-router-dom";
 
-function Dashboard({ token, user }) {
+function Dashboard({ token, user, userId }) {
   return (
     <div>
       <h2>Bine ai venit, {user}!</h2>

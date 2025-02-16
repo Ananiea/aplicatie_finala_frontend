@@ -2,15 +2,18 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setToken, setUser }) {
+function Login({ setToken, setUser, setUserId }) {
   const [id, setId] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://aplicatie-finala-backend.onrender.com/login", { id });
+      const res = await axios.post("https://aplicatie-backend.onrender.com/login", { id });
+
       setToken(res.data.token);
       setUser(res.data.name);
+      setUserId(id);  // Salvează ID-ul utilizatorului
+
       navigate("/dashboard");
     } catch (error) {
       alert("ID invalid!");

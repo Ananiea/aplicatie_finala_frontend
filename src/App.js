@@ -7,16 +7,17 @@ import AddShift from "./components/AddShift";
 function App() {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null); // Stocăm și ID-ul curierului
 
   return (
     <Router>
       <Routes>
         {!token ? (
-          <Route path="/" element={<Login setToken={setToken} setUser={setUser} />} />
+          <Route path="/" element={<Login setToken={setToken} setUser={setUser} setUserId={setUserId} />} />
         ) : (
           <>
-            <Route path="/dashboard" element={<Dashboard token={token} user={user} />} />
-            <Route path="/add-shift" element={<AddShift token={token} user={user} />} />
+            <Route path="/dashboard" element={<Dashboard token={token} user={user} userId={userId} />} />
+            <Route path="/add-shift" element={<AddShift token={token} user={user} userId={userId} />} />
           </>
         )}
       </Routes>
