@@ -2,27 +2,26 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setToken, setUser, setUserId }) {
+function Login({ setToken, setUser }) {
   const [id, setId] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://aplicatie-backend.onrender.com/login", { id });
+      const res = await axios.post("http://localhost:3000/login", { id });
       setToken(res.data.token);
       setUser(res.data.name);
-      setUserId(id);
       navigate("/dashboard");
     } catch (error) {
-      alert("Ungültige ID!"); // "ID invalid!"
+      alert("ID invalid!");
     }
   };
 
   return (
     <div>
-      <h2>Anmeldung</h2>
-      <input type="text" placeholder="ID eingeben" value={id} onChange={(e) => setId(e.target.value)} />
-      <button onClick={handleLogin}>Anmelden</button>
+      <h2>Autentificare</h2>
+      <input type="text" placeholder="ID Curier" value={id} onChange={(e) => setId(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }
