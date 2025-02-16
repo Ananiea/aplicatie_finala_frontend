@@ -56,7 +56,7 @@ function AddShift({ token, user, userId }) {
         <input type="text" value={user} disabled />
 
         <label>ID:</label>
-        <input type="text" value={userId} disabled />  {/* Acum ID-ul este completat automat */}
+        <input type="text" value={userId} disabled />
 
         <label>Kunde:</label>
         <input type="number" value={kunde} onChange={(e) => setKunde(e.target.value)} required />
