@@ -2,17 +2,15 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setToken, setUser, setUserId }) {
-  const [id, setId] = useState("");
-  const navigate = useNavigate();
-
+function Login({ setToken, setUser, setUserId, setRole }) {
   const handleLogin = async () => {
     try {
       const res = await axios.post("https://aplicatie-backend.onrender.com/login", { id });
 
       setToken(res.data.token);
       setUser(res.data.name);
-      setUserId(id);  // Salvează ID-ul utilizatorului
+      setUserId(id);
+      setRole(res.data.role); // Salvăm rolul utilizatorului
 
       navigate("/dashboard");
     } catch (error) {

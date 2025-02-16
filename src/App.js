@@ -8,6 +8,8 @@ function App() {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null); // Stocăm și ID-ul curierului
+  const [role, setRole] = useState(null);
+  
 
   return (
     <Router>
@@ -16,7 +18,7 @@ function App() {
           <Route path="/" element={<Login setToken={setToken} setUser={setUser} setUserId={setUserId} />} />
         ) : (
           <>
-            <Route path="/dashboard" element={<Dashboard token={token} user={user} userId={userId} />} />
+            <Route path="/dashboard" element={<Dashboard token={token} user={user} userId={userId} role={role} />} />
             <Route path="/add-shift" element={<AddShift token={token} user={user} userId={userId} />} />
           </>
         )}
