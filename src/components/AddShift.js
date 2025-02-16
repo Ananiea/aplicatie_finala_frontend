@@ -12,13 +12,15 @@ function AddShift({ token, user, userId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validare înainte de trimitere
     if (!shiftNumber || !kunde || !auto || !datum || !startTime || !endTime) {
-      alert("Alle Felder sind erforderlich!");
+      alert("Alle Felder sind erforderlich!"); // "Toate câmpurile sunt obligatorii!"
       return;
     }
 
+    // Validare Auto (fără spații)
     if (/\s/.test(auto)) {
-      alert("Das Feld 'Auto' darf keine Leerzeichen enthalten!");
+      alert("Das Feld 'Auto' darf keine Leerzeichen enthalten!"); // "Câmpul 'Auto' nu trebuie să conțină spații!"
       return;
     }
 
@@ -33,7 +35,7 @@ function AddShift({ token, user, userId }) {
         end_time: endTime,
       }, { headers: { Authorization: `Bearer ${token}` } });
 
-      alert("Schicht erfolgreich hinzugefügt!");
+      alert("Schicht erfolgreich hinzugefügt!"); // "Tură adăugată cu succes!"
       setShiftNumber("");
       setKunde("");
       setAuto("");
@@ -41,7 +43,7 @@ function AddShift({ token, user, userId }) {
       setStartTime("");
       setEndTime("");
     } catch (error) {
-      alert("Fehler beim Hinzufügen der Schicht!");
+      alert("Fehler beim Hinzufügen der Schicht!"); // "Eroare la adăugare!"
     }
   };
 
